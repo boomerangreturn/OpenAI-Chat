@@ -29,7 +29,7 @@
     <script>
         function chatGpt(){
             const question=document.getElementById('question').value;
-            fetch('http://localhost:3000/'+question)
+            fetch('https://port-0-openai-chat-176n8k2alhrzdsh8.sel4.cloudtype.app/'+question)
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data)
