@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT_API</title>
+    <style>  
+        #answertext {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid gray;
+            width: 730px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input id="question" type="text" size="100">
+    <button onclick="chatGpt()">질문</button>
+    </div>
+    <div id="answertext">
+        A :<p id="answer"></p>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+        </script>  
+    <script>
+        function chatGpt(){
+            const question=document.getElementById('question').value;
+            fetch('http://localhost:3000/'+question)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    document.getElementById('answer').innerHTML = (data.Answer)
+                });
+        }
+    </script>     
+</body>
+</html>
