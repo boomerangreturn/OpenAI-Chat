@@ -3,6 +3,10 @@ const app = express();
 var cors = require('cors')
 app.use(cors())
 
+app.get('/', function (req, res) {
+   res.send('Hello ChatGPT')
+});
+
  require('dotenv').config();
  const { Configuration, OpenAIApi } = require("openai");
  const configuration = new Configuration({
